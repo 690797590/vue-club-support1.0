@@ -5,10 +5,10 @@ const routes = [
     {
         path: '/login',
         component: Login,
-        hidden: true,
         meta: {
             title: '登录',
             keepAlive: false,
+            hidden: true,
         }
     }
 ]

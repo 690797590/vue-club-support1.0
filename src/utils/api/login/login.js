@@ -7,7 +7,7 @@ let base = publicPath.pathUrl().domain;
 export const APIlogin = params => {
     return axios.post(`${base}/blogger/login`, params);
 };
-/**/
-export const APIgetExple = params => {
-    return axios.get(`${base}/`, {params: params});
+/*退出登录*/
+export const APIlogoute = params => {
+    return axios.get(`${base}/admin/blogger/logout`, {params: params});
 };

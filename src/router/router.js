@@ -1,24 +1,39 @@
-import notFound from '@/components/404.vue'
+import notFound from '@/components/404'
+import Home from '@/components/home'
 
 /**
  * TODO 登陆相关路由
  * loginRouter
  **/
 import loginRouter from './login/login';
+import hotlinkRouter from './hotlink/hotlink';
 
 const normalRouter = [
     {
         path: '/',
         redirect: '/login',
+        meta: {
+            hidden: true
+        }
     },
     {
         path: '/404',
         component: notFound,
         meta: {
-            title:'404 Not Found',
+            title: '404 Not Found',
             keepAlive: false,
+            hidden: true
         }
-    }
+    },
+    {
+        path: '/home',
+        component: Home,
+        meta: {
+            title: '首页',
+            keepAlive: false,
+            hidden: true
+        }
+    },
 ]
 
 const notFoundRouter = [{
@@ -29,9 +44,10 @@ const notFoundRouter = [{
     meta: {
         title: '404 Not Found',
         keepAlive: false,
+        hidden: true
     }
 }]
 
 // const routes = normalRouter.concat(loginRouter, notFoundRouter);
-const routes = [...normalRouter, ...loginRouter, ...notFoundRouter];
+const routes = [...normalRouter, ...loginRouter, ...hotlinkRouter, ...notFoundRouter];
 export default routes;

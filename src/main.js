@@ -8,11 +8,13 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'font-awesome/css/font-awesome.min.css'
 import './utils/filter_utils.js'
+import Utils from './utils/utils.js'
 
 Vue.use(VueRouter)
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.$Utils = Utils
 
 /**
  * TODO 设置路由
