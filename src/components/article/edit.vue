@@ -1,10 +1,12 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="article-edit">
+        博客书写编辑
+    </div>
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "edit"
     }
 </script>
 

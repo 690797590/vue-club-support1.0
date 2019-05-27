@@ -1,5 +1,7 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="article-index">
+        博客管理首页
+    </div>
 </template>
 
 <script>

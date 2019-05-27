@@ -1,5 +1,7 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="user-index">
+        用户管理首页
+    </div>
 </template>
 
 <script>

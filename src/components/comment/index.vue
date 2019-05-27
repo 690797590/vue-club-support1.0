@@ -1,5 +1,5 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="comment-index">评论审核</div>
 </template>
 
 <script>

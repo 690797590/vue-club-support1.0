@@ -1,5 +1,5 @@
 <template>
-    <div>edit</div>
+    <div>友情链接编辑</div>
 
 </template>
 

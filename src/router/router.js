@@ -7,6 +7,11 @@ import Home from '@/components/home'
  **/
 import loginRouter from './login/login';
 import hotlinkRouter from './hotlink/hotlink';
+import articleRouter from './article/article';
+import classifyRouter from './classify/classify';
+import commentRouter from './comment/comment';
+import userRouter from './user/user';
+import systemRouter from './system/system';
 
 const normalRouter = [
     {
@@ -49,5 +54,5 @@ const notFoundRouter = [{
 }]
 
 // const routes = normalRouter.concat(loginRouter, notFoundRouter);
-const routes = [...normalRouter, ...loginRouter, ...hotlinkRouter, ...notFoundRouter];
+const routes = [...normalRouter, ...loginRouter, ...hotlinkRouter, ...notFoundRouter, ...articleRouter, ...classifyRouter, ...commentRouter, ...userRouter, ...systemRouter];
 export default routes;

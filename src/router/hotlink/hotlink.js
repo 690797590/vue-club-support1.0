@@ -7,6 +7,7 @@ const routes = [
         path: '/home',
         component: Home,
         meta:{
+            truePath:'/hotlink',
             hidden: false,
             title:'友情链接',
             iconClass:'el-icon-paperclip',

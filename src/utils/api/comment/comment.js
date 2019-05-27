@@ -11,7 +11,7 @@ export const APIcommentList = params => {
 export const APIcommentReview = params => {
     return axios.get(`${base}/admin/comment/review`, {params: params});
 };
-/*登录*/
+/*博客评论删除*/
 export const APIcommentDelete = params => {
     return axios.get(`${base}/admin/comment/delete`, {params: params});
 };

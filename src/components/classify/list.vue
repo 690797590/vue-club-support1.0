@@ -1,5 +1,7 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="classify-list">
+        博客类别信息管理
+    </div>
 </template>
 
 <script>

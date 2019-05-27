@@ -1,10 +1,10 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="comment-edit">评论信息管理</div>
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "edit"
     }
 </script>
 

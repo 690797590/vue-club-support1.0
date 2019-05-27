@@ -1,10 +1,12 @@
 <template>
-    <div>友情链接首页</div>
+    <div class="system-password">
+        修改密码
+    </div>
 </template>
 
 <script>
     export default {
-        name: "index"
+        name: "password"
     }
 </script>
 

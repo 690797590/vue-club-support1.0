@@ -22,8 +22,8 @@
                         unique-opened
                         :default-active="this.$route.path"
                         class="el-menu-vertical-demo" style="background-color: #ECECEC" router>
-                    <template v-for="itemlv1 in this.$router.options.routes" v-if="!itemlv1.meta.hidden">
-                        <el-submenu :index="itemlv1.path" v-if="!itemlv1.meta.leaf" :key="itemlv1.path">
+                    <template v-for="(itemlv1,indexlv1) in this.$router.options.routes" v-if="!itemlv1.meta.hidden">
+                        <el-submenu :index="itemlv1.meta.truePath" v-if="!itemlv1.meta.leaf" :key="itemlv1.path+indexlv1">
                             <template slot="title">
                                 <i :class="itemlv1.meta.iconClass"></i>
                                 <span>{{itemlv1.meta.title}}</span>
@@ -109,7 +109,7 @@
         },
         mounted: function () {
             this.showWelcome();
-            console.log(this.$route)
+            console.log(this.$router.options.routes)
         },
         methods: {
             showWelcome() {
