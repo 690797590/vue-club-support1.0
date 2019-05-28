@@ -34,7 +34,7 @@ const normalRouter = [
         path: '/home',
         component: Home,
         meta: {
-            title: '首页',
+            // title: '首页',
             keepAlive: false,
             hidden: true
         }

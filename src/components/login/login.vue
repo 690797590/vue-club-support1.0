@@ -26,8 +26,8 @@
                 },
                 checked: true,
                 loginInfo: {
-                    userName: 'adu',
-                    password: 'djg19950413'
+                    userName: 'dulaoshi',
+                    password: 'dulaoshi'
                 },
                 loading: false
             }

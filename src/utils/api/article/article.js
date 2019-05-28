@@ -5,7 +5,7 @@ let base = publicPath.pathUrl().domain;
 
 /*分页查询博客信息*/
 export const APIblogList = params => {
-    return axios.post(`${base}/admin/blog/list`, params);
+    return axios.get(`${base}/admin/blog/list`, {params: params});
 };
 /*通过id查找博客信息*/
 export const APIblogListById = params => {

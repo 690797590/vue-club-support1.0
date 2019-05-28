@@ -23,7 +23,8 @@
                         :default-active="this.$route.path"
                         class="el-menu-vertical-demo" style="background-color: #ECECEC" router>
                     <template v-for="(itemlv1,indexlv1) in this.$router.options.routes" v-if="!itemlv1.meta.hidden">
-                        <el-submenu :index="itemlv1.meta.truePath" v-if="!itemlv1.meta.leaf" :key="itemlv1.path+indexlv1">
+                        <el-submenu :index="itemlv1.meta.truePath" v-if="!itemlv1.meta.leaf"
+                                    :key="itemlv1.path+indexlv1">
                             <template slot="title">
                                 <i :class="itemlv1.meta.iconClass"></i>
                                 <span>{{itemlv1.meta.title}}</span>
@@ -40,37 +41,43 @@
                                                 <span>{{itemlv3.meta.title}}</span>
                                             </template>
                                             <template v-for="itemlv4 in itemlv3.children" v-if="!itemlv4.meta.hidden">
-                                                <el-submenu :index="itemlv4.path" v-if="!itemlv4.meta.leaf" :key="itemlv4.path">
+                                                <el-submenu :index="itemlv4.path" v-if="!itemlv4.meta.leaf"
+                                                            :key="itemlv4.path">
                                                     <template slot="title">
                                                         <span>{{itemlv4.meta.title}}</span>
                                                     </template>
-                                                    <template v-for="itemlv5 in itemlv4.children" v-if="!itemlv5.meta.hidden">
+                                                    <template v-for="itemlv5 in itemlv4.children"
+                                                              v-if="!itemlv5.meta.hidden">
                                                         <el-menu-item
                                                                 v-if="itemlv5.meta.leaf"
                                                                 :index="itemlv5.path"
                                                                 :key="itemlv5.path"
-                                                        >{{itemlv5.meta.title}}</el-menu-item>
+                                                        >{{itemlv5.meta.title}}
+                                                        </el-menu-item>
                                                     </template>
                                                 </el-submenu>
                                                 <el-menu-item
                                                         v-if="itemlv4.meta.leaf"
                                                         :index="itemlv4.path"
                                                         :key="itemlv4.path"
-                                                >{{itemlv4.meta.title}}</el-menu-item>
+                                                >{{itemlv4.meta.title}}
+                                                </el-menu-item>
                                             </template>
                                         </el-submenu>
                                         <el-menu-item
                                                 v-if="itemlv3.meta.leaf"
                                                 :index="itemlv3.path"
                                                 :key="itemlv3.path"
-                                        >{{itemlv3.meta.title}}</el-menu-item>
+                                        >{{itemlv3.meta.title}}
+                                        </el-menu-item>
                                     </template>
                                 </el-submenu>
                                 <el-menu-item
                                         v-if="itemlv2.meta.leaf"
                                         :index="itemlv2.path"
                                         :key="itemlv2.path"
-                                >{{itemlv2.meta.title}}</el-menu-item>
+                                >{{itemlv2.meta.title}}
+                                </el-menu-item>
                             </template>
 
                         </el-submenu>
@@ -85,9 +92,9 @@
             </el-aside>
             <el-container>
                 <el-main>
-                    <el-breadcrumb separator-class="el-icon-arrow-right">
+                    <el-breadcrumb separator-class="el-icon-arrow-right" class="nav-breadcrumb">
                         <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
-                        <el-breadcrumb-item v-text="this.$router.currentRoute.name"></el-breadcrumb-item>
+                        <el-breadcrumb-item v-text="this.$router.currentRoute.meta.title"></el-breadcrumb-item>
                     </el-breadcrumb>
                     <keep-alive>
                         <router-view v-if="this.$route.meta.keepAlive"></router-view>
@@ -109,7 +116,7 @@
         },
         mounted: function () {
             this.showWelcome();
-            console.log(this.$router.options.routes)
+            console.log(this.$router.currentRoute)
         },
         methods: {
             showWelcome() {
@@ -206,7 +213,12 @@
         display: inline;
         margin-right: 20px;
     }
+
     .el-menu-vertical-demo {
         text-align: left;
+    }
+
+    .nav-breadcrumb {
+        padding-bottom: 20px;
     }
 </style>
