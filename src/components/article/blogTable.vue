@@ -25,8 +25,8 @@
             </el-table-column>
             <el-table-column
                     label="标题"
-                    width="400" align="left">
-                <template slot-scope="scope"><span style="color: #409eff;cursor: pointer" @click="itemClick(scope.row)">{{ scope.row.title}}</span>
+                    align="left">
+                <template slot-scope="scope"><span class="article-title" @click="itemClick(scope.row)">{{ scope.row.title}}</span>
                 </template>
             </el-table-column>
             <el-table-column
@@ -39,11 +39,11 @@
                     width="120" align="left">
             </el-table-column>
             <el-table-column
-                    prop="cateName"
+                    prop="typeName"
                     label="所属分类"
                     width="120" align="left">
             </el-table-column>
-            <el-table-column label="操作" align="left" v-if="showEdit || showDelete">
+            <el-table-column width="160" label="操作" align="left" v-if="showEdit || showDelete">
                 <template slot-scope="scope">
                     <el-button
                             size="mini"
@@ -85,8 +85,8 @@
         data() {
             return {
                 searchStr: '', //搜索关键词
-                articles: [],
-                selItems: [],
+                articles: [], //博客列表数据
+                selItems: [], //
                 loading: false,
                 currentPage: 1,
                 totalCount: -1,
@@ -97,6 +97,7 @@
         mounted() {
             this.loading = true;
             this.loadBlogs(1, this.pageSize);
+            this.loading = false;
         },
         methods: {
             searchClick() {
@@ -115,6 +116,7 @@
                  **/
                 this.currentPage = currentPage;
                 this.loading = true;
+                this.loadBlogs(this.currentPage, this.pageSize);
             },
             handleSelectionChange(val) {
                 this.selItems = val;
@@ -123,11 +125,13 @@
                 /**
                  * 查看博客详情
                  **/
+                this.$router.push({path: '/article/detail', query: {id: row.id}})
             },
             handleEdit(index, row) {
                 /**
                  * 编辑博客
                  **/
+                this.$router.push({path: '/article/edit', query: {from: this.activeName, id: row.id}});
             },
             handleDelete(index, row) {
                 /**
@@ -152,11 +156,13 @@
                     searchStr: _this.searchStr,
                     state: _this.state
                 }).then(res => {
+                    _this.loading = false;
                     console.log("列表信息>>>>>>", res)
                     if (res.status == 200) {
                         let data = res.data;
                         if (data.code == 0) {
-                            _this.articles = data.list;
+                            _this.articles = data.data.list;
+                            _this.totalCount = data.data.total;
                         } else {
                             _this.$message.error(data.msg);
                         }
@@ -165,7 +171,8 @@
                         _this.$message.error(res.data.msg);
                     }
                 }).catch(res => {
-
+                    _this.loading = false;
+                    _this.$message({type: 'error', message: '系统错误请稍后再试⊙﹏⊙∥!'});
                 })
             }
         }
@@ -174,6 +181,11 @@
 
 <style scoped lang="scss">
     .blog-table {
+        .article-title {
+            color: #409eff;
+            cursor: pointer
+        }
+
         .footer {
             display: flex;
             box-sizing: content-box;

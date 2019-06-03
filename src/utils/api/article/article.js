@@ -9,7 +9,7 @@ export const APIblogList = params => {
 };
 /*通过id查找博客信息*/
 export const APIblogListById = params => {
-    return axios.get(`${base}/admin/blog/findByIdt`, {params: params});
+    return axios.get(`${base}/admin/blog/findById`, {params: params});
 };
 /*博客信息删除*/
 export const APIblogDelete = params => {

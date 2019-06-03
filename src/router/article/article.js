@@ -1,6 +1,7 @@
 const Home = () => import(/* webpackChunkName: "group-article" */ '@/components/home');
 const articleIndex = () => import(/* webpackChunkName: "group-article" */ '@/components/article/index');
 const articleEdit = () => import(/* webpackChunkName: "group-article" */ '@/components/article/edit');
+const articleDetail = () => import(/* webpackChunkName: "group-article" */ '@/components/article/detail');
 
 const routes = [
     {
@@ -29,6 +30,15 @@ const routes = [
                 component: articleEdit,
                 meta: {
                     title: '写博客',
+                    keepAlive: false,
+                    hidden: false,
+                    leaf: true
+                }
+            },{
+                path: '/article/detail',
+                component: articleDetail,
+                meta: {
+                    title: '博客详情',
                     keepAlive: false,
                     hidden: false,
                     leaf: true
